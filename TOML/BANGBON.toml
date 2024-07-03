@@ -1,0 +1,22 @@
+# 
+#  BANGBON : demo T300 at Thai-Dhamma Development 
+# 
+
+POS_LATLNG  = [  13.6545297, 100.3515265]  # centroid of the constuction site
+MSL = 1.5  # meter
+BUFFER  = [ 300, 10 ]      # meter, expanding to quadrangle area, make upper/mid/lower planes
+CENTR_MERID = [ 100, 21 ]   # longitude in degree and minute ! for central merdian
+#FALSE_EN    = [ +300 , -1509600 ]  # make coordinate look nice , compact and easier to handle
+FALSE_EN    = [ 'AUTO', 'AUTO' ]  # make coordinate look nice , compact and easier to handle
+
+[UTM_LDP]
+PROJ='EPSG:32647'
+RTK1=[ 646182.32, 1509921.17 , 1.5 ]
+RTK2=[ 646182.32, 1509921.17 , 1.5 ]
+
+[LDP_UTM]
+PROJ='EPSG:32647'
+PILE-1=[ 467.000 , 510.000,  1.500 ]
+PILE-2=[ 468.000 , 510.000,  1.500 ]
+PILE-3=[ 468.000 , 511.000,  1.500 ]
+PILE-4=[ 467.000 , 511.000,  1.500 ]

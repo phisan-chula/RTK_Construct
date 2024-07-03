@@ -1,0 +1,17 @@
+# 
+# 
+# 
+
+
+PROJECT     =  "RID Boploi 95km"
+CENTR_MERID = [ 99,35 ]     # longitude in degree and minute ! for central merdian
+FALSE_EN    = 'AUTO'        # make coordinate look nice , compact and easier to handle
+
+[TEST_POINT]
+GPCK  = ['./CACHE/Align_Srinakarin_95km.gpkg','Station']
+
+[UTM_LDP]
+PROJ='EPSG:32647'
+
+[LDP_UTM]
+PROJ='EPSG:32647'

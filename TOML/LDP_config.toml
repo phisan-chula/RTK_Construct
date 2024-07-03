@@ -1,0 +1,20 @@
+#
+# LDP configuration file
+#
+# CU-SBR
+POS_LATLNG  = [ 14.519354, 101.017051 ]   # centroid of the constuction site
+BUFFER_M    = [ 1_000, 50 ]      # meter, expanding to quadrangle area, make upper/mid/lower planes
+CENTR_MERID = [ 101, 1 ]   # longitude in degree and minute ! for central merdian
+FALSE_EN    = [ +2_500, -1_600_000 ]  # make coordinate look nice , compact and easier to handle
+
+[UTM_LDP]
+PROJ='EPSG:32647'
+RTK1=[ 717484.19, 1606458.38, 123.0 ]
+RTK2=[ 717517.90, 1606405.71, 456.0 ]
+RTK3=[ 717551.41, 1606370.40, 456.0 ]
+
+[LDP_UTM]
+PROJ='EPSG:32647'
+PILE-1=[ 2500.000, 5200.000, 123.0 ]
+PILE-2=[ 2600.000, 6000.000, 456.0 ]
+

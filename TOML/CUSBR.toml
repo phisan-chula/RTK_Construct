@@ -1,0 +1,23 @@
+#
+# CU-SBR
+#
+#LDP        = [ 'LCC', '14:31' ]   # longitude in degree and minute ! for central merdian
+LDP        = [ 'TM', '101:01' ]   # longitude in degree and minute ! for central merdian
+FALSE_EN   = 'AUTO'  # make coordinate look nice , compact and easier to handle
+
+
+[TEST_POINT]
+POS_LATLNG = [ 14.519354, 101.017051 ]   # centroid of the constuction site
+BUFFER   = [ 1_000, 50 ]      # meter, expanding to quadrangle area, make upper/mid/lower planes
+MSL  = 29 
+
+[UTM_LDP]
+PROJ='EPSG:32647'
+RTK1=[ 717484.19, 1606458.38, 123.0 ]
+RTK2=[ 717517.90, 1606405.71, 456.0 ]
+RTK3=[ 717551.41, 1606370.40, 456.0 ]
+
+[LDP_UTM]
+PROJ='EPSG:32647'
+PILE-1=[ 2500.000, 5200.000, 123.0 ]
+PILE-2=[ 2600.000, 6000.000, 456.0 ]

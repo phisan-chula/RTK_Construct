@@ -1,0 +1,28 @@
+# 
+# COOP : Sikew, Korat 
+# 
+
+
+PROJECT   =  "Sikew, Korat"
+
+LDP = [ "TM", '101:38' ]   #  TM with central meridian or LCC with starndar parallel
+FALSE_EN    = 'AUTO'        # make coordinate look nice , compact and easier to handle
+#FALSE_EN    = [ 1500, -1_640_000 ]  # make coordinate look nice , compact and easier to handle
+
+
+[TEST_POINT]
+POS_LATLNG  = [ 14.881939, 101.637929]   # centroid of the constuction site
+MSL       = 260  # meter
+BUFFER    = [ 1_000, 20 ]      # meter, expanding to quadrangle area, make upper/mid/lower planes
+
+[UTM_LDP]
+PROJ='EPSG:32647'
+RTK1=[ 783582.86, 1647318.61, 123.0 ]
+RTK2=[ 783622.71, 1647262.97, 456.0 ]
+
+[LDP_UTM]
+PROJ='EPSG:32647'
+BLDG-1=[ 5200.000, 5300.000, 260.0 ]
+BLDG-2=[ 5225.000, 5300.000, 260.0 ]
+BLDG-3=[ 5225.000, 5400.000, 260.0 ]
+BLDG-4=[ 5200.000, 5400.000, 260.0 ]

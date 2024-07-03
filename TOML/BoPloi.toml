@@ -1,0 +1,17 @@
+# 
+# 
+# 
+
+PROJECT     =  "RID Boploi 95km with Tunnel"
+LDP         = [ 'TM', '99:38' ]     # longitude in degree and minute ! for central merdian
+OFFSET_PP   = -30           #  add to MSL.mean() 
+FALSE_EN    = 'AUTO'        # make coordinate look nice , compact and easier to handle
+
+[TEST_POINT]
+XLSX  = [ 'Data/GNSS-SrinakarinDam.xlsx', 'EPSG:32647' ]   # centroid of the constuction site
+
+[UTM_LDP]
+PROJ='EPSG:32647'
+
+[LDP_UTM]
+PROJ='EPSG:32647'
