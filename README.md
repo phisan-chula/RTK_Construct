@@ -1,19 +1,16 @@
 # RTK_Construct
 ```sh
 usage: constr_LDP [-h] [-c] [-u] [-o OFFSET_PP] LDP_TOML
-
 Calculate CSF from points defined by GPKG, CSV or single point
-
 positional arguments:
   LDP_TOML
-
 options:
   -h, --help            show this help message and exit
   -c, --csf             show CSF table
   -u, --utm             show UTM-LDP table
   -o OFFSET_PP, --OFFSET_PP OFFSET_PP
-                        offset for project plane
-  
+                        offset for project plane  
+
   ตัวอย่างการออกแบบระบบพิกัดความคลาดเคลื่อนต่ำสำหรับพื้นที่โครงการ “บ่อพลอย” ได้จากการพิจารณากำหนดจุดสุ่มทดสอบใช้หมุดควบคุม RID-GNSS-001 ถึง RID-GNSS-176 ทั้งหมดในโครงการ พร้อมจุดตัวแทนแนวกึ่งกลางของอุโมงค์ส่งน้ำ T1, T2 และ T3 กำหนดค่าออกแบบเบื้องต้นเป็น  
 
 |     | Point         |     UTM_N |    UTM_E  |    MSL  |
