@@ -3,7 +3,7 @@
 usage: constr_LDP [-h] [-c] [-u] [-o OFFSET_PP] LDP_TOML
 Calculate CSF from points defined by GPKG, CSV or single point
 positional arguments:
-  LDP_TOML
+  LDP_TOML              TOML file, LDP parameters e.g. LDP=['TM','99:38']
 options:
   -h, --help            show this help message and exit
   -c, --csf             show CSF table
