@@ -9,7 +9,15 @@ options:
   -c, --csf             show CSF table
   -u, --utm             show UTM-LDP table
   -o OFFSET_PP, --OFFSET_PP OFFSET_PP
-                        offset for project plane  
+                        offset for project plane
+
+*** exmample TOML ***
+PROJECT     =  "Boploi 95km with Tunnel"
+LDP         = [ 'TM', '99:38' ]   # TM with central merdian
+OFFSET_PP   = -30           #  add to MSL.mean()
+FALSE_EN    = 'AUTO'        # make coordinate look nice , compact and easier to handle
+[TEST_POINT]
+XLSX  = [ 'Data/GNSS-SrinakarinDam.xlsx', 'EPSG:32647' ]   # centroid of the constuction site
 ```
 
   ตัวอย่างการออกแบบระบบพิกัดความคลาดเคลื่อนต่ำสำหรับพื้นที่โครงการ “บ่อพลอย” ได้จากการพิจารณากำหนดจุดสุ่มทดสอบใช้หมุดควบคุม RID-GNSS-001 ถึง RID-GNSS-176 ทั้งหมดในโครงการ พร้อมจุดตัวแทนแนวกึ่งกลางของอุโมงค์ส่งน้ำ T1, T2 และ T3 กำหนดค่าออกแบบเบื้องต้นเป็น  
