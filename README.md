@@ -14,25 +14,25 @@
 
 ## ช่วงของค่าสเกลแฟกเตอร์ร่วม (Combined Scale Factor : CSF ) ได้จากการกำหนดระนาบการฉาย TM ทีระนาบการฉาย ณ ระนาบก่อสร้าง ณ รทก ต่างๆ  
 
-Offset Projection Plane = +20.0 m. <defined by CLI args>
-Designed Project Plane : hPP=+62.54 m. / MSL=+96.39 m. tied to k0 = 1.000010
-Points CSF min/mean/max [ppm] : -4.4 / +5.8 / +21.4
+Offset Projection Plane = +20.0 m. <defined by CLI args>  
+Designed Project Plane : hPP=+62.54 m. / MSL=+96.39 m. tied to k0 = 1.000010  
+Points CSF min/mean/max [ppm] : -4.4 / +5.8 / +21.4  
 
-Offset Projection Plane = 0.0 m. <defined by CLI args>
-Designed Project Plane : hPP=+42.54 m. / MSL=+76.39 m. tied to k0 = 1.000007
-Points CSF min/mean/max [ppm] : -7.4 / +2.8 / +18.4
+Offset Projection Plane = 0.0 m. <defined by CLI args>  
+Designed Project Plane : hPP=+42.54 m. / MSL=+76.39 m. tied to k0 = 1.000007  
+Points CSF min/mean/max [ppm] : -7.4 / +2.8 / +18.4  
 
-Offset Projection Plane = -20.0 m. <defined by CLI args>
-Designed Project Plane : hPP=+22.54 m. / MSL=+56.39 m. tied to k0 = 1.000004
-Points CSF min/mean/max [ppm] : -10.4 / -0.2 / +15.4
+Offset Projection Plane = -20.0 m. <defined by CLI args>  
+Designed Project Plane : hPP=+22.54 m. / MSL=+56.39 m. tied to k0 = 1.000004  
+Points CSF min/mean/max [ppm] : -10.4 / -0.2 / +15.4  
 
-Offset Projection Plane = -30.0 m. <defined by CLI args>
-Designed Project Plane : hPP=+12.54 m. / MSL=+46.39 m. tied to k0 = 1.000002
-Points CSF min/mean/max [ppm] : -12.4 / -2.2 / +13.4
+Offset Projection Plane = -30.0 m. <defined by CLI args>  
+Designed Project Plane : hPP=+12.54 m. / MSL=+46.39 m. tied to k0 = 1.000002  
+Points CSF min/mean/max [ppm] : -12.4 / -2.2 / +13.4  
 
-Offset Projection Plane = -40.0 m. <defined by CLI args>
-Designed Project Plane : hPP=+2.54 m. / MSL=+36.39 m. tied to k0 = 1.000000
-Points CSF min/mean/max [ppm] : -14.4 / -4.2 / +11.4 
+Offset Projection Plane = -40.0 m. <defined by CLI args>  
+Designed Project Plane : hPP=+2.54 m. / MSL=+36.39 m. tied to k0 = 1.000000  
+Points CSF min/mean/max [ppm] : -14.4 / -4.2 / +11.4   
 
 ทำการปรับค่า False Easting และ Fase Northing ให้พิกัดท้องถิ่นมีตัวเลขกระทัดรัดและกระชับ ไม่มีตัวเลขค่าพิกัดมีเครื่องหมายลบ ในมาตรฐานฉบับนี้จึงเสนอว่า ค่าพารามิเตอร์ระบบพิกัดท้องถิ่น LDP ของโครงการ “บ่อพลอย” (LDP-BOPLOI) คือ 
 
