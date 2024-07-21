@@ -1,0 +1,17 @@
+# 
+# 
+# 
+
+PROJECT     =  "RID Boploi 95km Canal"
+LDP         = [ 'TM', '99:35' ]     # longitude in degree and minute ! for central merdian
+OFFSET_PP   = -110           #  add to MSL.mean() 
+FALSE_EN    = 'AUTO'        # make coordinate look nice , compact and easier to handle
+
+[TEST_POINT]
+GPKG  = [ 'CACHE/Align_Srinakarin_95km.gpkg', 'Station' ]  
+
+[UTM_LDP]
+PROJ='EPSG:32647'
+
+[LDP_UTM]
+PROJ='EPSG:32647'

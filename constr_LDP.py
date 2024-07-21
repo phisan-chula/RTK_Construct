@@ -114,9 +114,10 @@ class LDP_Design:
         return  int( np.round( target-mid,-digits) )
 
     def LoadTestPoint( self ):
-        if 'GPCK' in self.DATA['TEST_POINT'].keys():
-            gdf = gpd.read_file( self.DATA['TEST_POINT']['GPCK'][0], 
-                                layer= self.DATA['TEST_POINT']['GPCK'][1] )
+        #import pdb; pdb.set_trace()
+        if 'GPKG' in self.DATA['TEST_POINT'].keys():
+            gdf = gpd.read_file( self.DATA['TEST_POINT']['GPKG'][0], 
+                                layer= self.DATA['TEST_POINT']['GPKG'][1] )
             dfPP = gdf.to_crs('EPSG:4326')
             dfPP['lng'] = dfPP.geometry.x; dfPP['lat'] = dfPP.geometry.y
         elif 'XLSX' in self.DATA['TEST_POINT'].keys():
@@ -126,7 +127,6 @@ class LDP_Design:
             dfPP = gdf.to_crs('EPSG:4326')
             dfPP['lng'] = dfPP.geometry.x; dfPP['lat'] = dfPP.geometry.y
         else:  # make 3 planes from buffering a single point
-            #import pdb; pdb.set_trace()
             POS  = self.DATA['TEST_POINT']['POS_LATLNG']
             MSL  = self.DATA['TEST_POINT']['MSL']
             HOR_BUF, VER_BUF = self.DATA['TEST_POINT']['BUFFER']
@@ -227,7 +227,7 @@ class LDP_Design:
 parser = argparse.ArgumentParser( prog='constr_LDP',
                     description='Calculate CSF from points defined by GPKG, CSV or single point',
                     epilog='P.Santitamnont ( phisan.chula@gmail.com ) July,2024) ')
-parser.add_argument('LDP_TOML')
+parser.add_argument('LDP_TOML', help="TOML file, LDP parameters e.g. LDP=['TM','99:38']")
 parser.add_argument('-c', '--csf', action='store_true', help='show CSF table') 
 parser.add_argument('-u', '--utm', action='store_true', help='show UTM-LDP table')
 parser.add_argument('-o', '--OFFSET_PP', type=int, help='offset for project plane')

@@ -64,7 +64,8 @@ class RoutePoints:
 
     def GetMSL( self ):
         df = self.dfPOINT.to_crs('EPSG:4326').copy()
-        with rio.open( 'Data/NASADEM_HGT.001/NASADEM30m.vrt' ) as dataset:
+        #with rio.open( 'Data/NASADEM_HGT.001/NASADEM30m.vrt' ) as dataset:
+        with rio.open( '/mnt/d/GeoData/FABDEM_TH/FABDEM_Thailand.vrt' ) as dataset:
             metadata = dataset.meta
             print("Metadata:", metadata)
             # Read the dataset's data
@@ -147,7 +148,7 @@ if 0:
 else:
     KML = Path(  'Data/Align_Srinakarin_95km.kml' )
     route = RouteKML( KML )
-    route.PointsCorridor( 250, 200 )
+    route.PointsCorridor( 500, 200 )  # DIV equally every,  ROW define width of linestring
     route.PlotMap( KML.stem )
 
 #pntLDP   = route.dfPOINT.to_crs( CRS.from_proj4( LDP ) )
