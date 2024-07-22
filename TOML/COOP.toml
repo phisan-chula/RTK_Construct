@@ -12,7 +12,7 @@ FALSE_EN    = 'AUTO'        # make coordinate look nice , compact and easier to 
 
 [TEST_POINT]
 POS_LATLNG  = [ 14.881939, 101.637929]   # centroid of the constuction site
-MSL       = 260  # meter
+MSL        = 260  # meter
 BUFFER    = [ 1_000, 20 ]      # meter, expanding to quadrangle area, make upper/mid/lower planes
 
 [UTM_LDP]

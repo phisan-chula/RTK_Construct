@@ -90,9 +90,10 @@ class RoutePoints:
 
 class RouteKML( RoutePoints ):
     def __init__(self, KML ):
-        align3d = gpd.read_file( KML ).iloc[0].geometry 
-        align2d = LineString([(x, y) for x, y, z in align3d.coords])
-        self.ALIGN = gpd.GeoDataFrame( crs='EPSG:4326', geometry=[align2d,] )
+        align = gpd.read_file( KML ).iloc[0].geometry 
+        if align.has_z:
+            align = LineString([(x, y) for x, y, z in align.coords])
+        self.ALIGN = gpd.GeoDataFrame( crs='EPSG:4326', geometry=[align,] )
         self.ALIGN = self.ALIGN.to_crs('EPSG:32647') 
 
 class RouteLandXML( RoutePoints ):
@@ -122,7 +123,6 @@ class RouteLandXML( RoutePoints ):
             return GeomType[nStr], LS
         df[['AlignType', 'geometry']] = df.apply( MakeLS, axis=1, result_type='expand' )
         gdf = gpd.GeoDataFrame( df , crs='EPSG:32647', geometry=df.geometry )
-        import pdb;pdb.set_trace()
         return gdf
 
     def CheckContinuity(self):
@@ -146,7 +146,8 @@ if 0:
     route = RouteLandXML( landxml_file )
     route.PointsCorridor( DIV=500, ROW=200 )
 else:
-    KML = Path(  'Data/Align_Srinakarin_95km.kml' )
+    KML = Path(  'Data/Test01.kml' )
+    #KML = Path(  'Data/Align_Srinakarin_95km.kml' )
     route = RouteKML( KML )
     route.PointsCorridor( 500, 200 )  # DIV equally every,  ROW define width of linestring
     route.PlotMap( KML.stem )

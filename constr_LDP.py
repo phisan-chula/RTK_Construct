@@ -190,6 +190,9 @@ class LDP_Design:
     def Print_UTM(self):
         epsg = self.dfPP.estimate_utm_crs().to_epsg()
         dfUTM = self.dfPP.to_crs( epsg )
+        #import pdb; pdb.set_trace()
+        ####utm_crs = pyproj.Proj(epsg)
+        ####PSF = ldp_crs.get_factors( row.lng, row.lat ).meridional_scale
         def makeUTM(row):
             utm_e = row.geometry.x ; utm_n = row.geometry.y 
             return utm_e,utm_n
@@ -199,9 +202,8 @@ class LDP_Design:
                      index=False , floatfmt=FMT ) )
 
     def DoTransformation(self,TOML_SECT ):
-        #TOML = self.TOML.copy()
         FR_PRJ = pyproj.CRS( self.DATA[TOML_SECT]['PROJ'] )
-        TO_PRJ = self.DATA.LDP
+        TO_PRJ = self.DATA.LDP_CRS
         FR_COL = ['UTM_E','UTM_N','UTM_Elev']
         TO_COL = ['LDP_E','LDP_N','LDP_Elev']
         if TOML_SECT=='UTM_LDP':
@@ -210,7 +212,6 @@ class LDP_Design:
             FR_PRJ,TO_PRJ = TO_PRJ,FR_PRJ
             FR_COL,TO_COL = TO_COL,FR_COL
         del self.DATA[TOML_SECT]['PROJ']
-        import pdb; pdb.set_trace()
         pnts = self.DATA[TOML_SECT]
         df = pd.DataFrame.from_dict( pnts, orient='index', columns=FR_COL )
         TR = pyproj.Transformer.from_crs( FR_PRJ, TO_PRJ )
@@ -240,7 +241,7 @@ ldp.Print_Defintion()
 
 if args.csf: ldp.Print_CSFppm()
 if args.utm: ldp.Print_UTM()
-if 0:
+if 1:
     dfLDP = ldp.DoTransformation( 'UTM_LDP' )
     print( dfLDP.to_markdown( floatfmt=",.3f" ) )
     dfUTM = ldp.DoTransformation( 'LDP_UTM' )

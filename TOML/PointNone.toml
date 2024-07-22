@@ -1,0 +1,21 @@
+# 
+#  
+# 
+
+
+PROJECT   =  "Pliew"
+
+LDP = [ "TM", '100:26' ]   #  TM with central meridian or LCC with starndar parallel
+FALSE_EN    = 'AUTO'        # make coordinate look nice , compact and easier to handle
+
+
+[TEST_POINT]
+GPKG = ['CACHE/PointMSL None.gpkg', 'Point']
+
+[UTM_LDP]
+PROJ='EPSG:32647'
+Pnt3=[656439.968,1520642.678,3.000]
+
+[LDP_UTM]
+PROJ='EPSG:32647'
+

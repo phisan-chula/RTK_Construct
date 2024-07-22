@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="single_parts" id="single_parts">
+	<SimpleField name="fid" type="float"></SimpleField>
+	<SimpleField name="OBJECTID" type="float"></SimpleField>
+	<SimpleField name="TYPE" type="float"></SimpleField>
+	<SimpleField name="SUB_TYPE" type="float"></SimpleField>
+	<SimpleField name="REMARK" type="string"></SimpleField>
+	<SimpleField name="SHAPE_Leng" type="float"></SimpleField>
+	<SimpleField name="Timestamp" type="string"></SimpleField>
+	<SimpleField name="id" type="float"></SimpleField>
+	<SimpleField name="Vertice_Co" type="float"></SimpleField>
+	<SimpleField name="Section" type="float"></SimpleField>
+	<SimpleField name="LINE SEC N" type="string"></SimpleField>
+</Schema>
+<Folder><name>single_parts</name>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#single_parts">
+		<SimpleData name="fid">1</SimpleData>
+		<SimpleData name="REMARK">Zone2</SimpleData>
+		<SimpleData name="SHAPE_Leng">27523.413000000000466</SimpleData>
+		<SimpleData name="Timestamp">2023/12/07 12:58:38.135</SimpleData>
+		<SimpleData name="id">1</SimpleData>
+		<SimpleData name="Vertice_Co">136</SimpleData>
+		<SimpleData name="Section">1</SimpleData>
+		<SimpleData name="LINE SEC N">SECTION 1</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>101.283979483858,14.8401878512984 101.283979483858,14.8401878512975 101.286203641708,14.8331082972252 101.285927828035,14.8182255375768 101.284260773638,14.8147916645378 101.284395914251,14.8055947448972 101.281320005074,14.7985998442122 101.269226348666,14.7840281184334 101.261480983953,14.7816465084551 101.239895040971,14.7753370627116</coordinates></LineString>
+  </Placemark>
+</Folder>
+</Document></kml>

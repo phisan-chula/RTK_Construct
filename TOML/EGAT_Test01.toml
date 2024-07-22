@@ -1,0 +1,16 @@
+# 
+# 
+# 
+PROJECT     =  "EGAT Transmission Line ; Test01"
+LDP         = [ 'TM', '101:16' ]     # longitude in degree and minute ! for central merdian
+OFFSET_PP   = -25         #  add to MSL.mean() 
+FALSE_EN    = 'AUTO'        # make coordinate look nice , compact and easier to handle
+
+[TEST_POINT]
+GPKG  = [ 'CACHE/Test01.gpkg', 'Station' ]  
+
+[UTM_LDP]
+PROJ='EPSG:32648'
+
+[LDP_UTM]
+PROJ='EPSG:32648'
