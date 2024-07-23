@@ -17,6 +17,10 @@ from shapely.ops import linemerge,snap
 import matplotlib.pyplot as plt
 gpd.options.io_engine = "pyogrio"
 
+#DEM = r'/mnt/d/GeoData/NASADEM_HGT.001/NASADEM30m.vrt'
+DEM = r'/mnt/d/GeoData/FABDEM_TH/FABDEM_Thailand.vrt'
+#DEM = r'./Data/DEM_500kV_NR4-WN_WGS.tif'
+
 class RoutePoints:
     def __init__(self):
         pass
@@ -64,8 +68,7 @@ class RoutePoints:
 
     def GetMSL( self ):
         df = self.dfPOINT.to_crs('EPSG:4326').copy()
-        #with rio.open( 'Data/NASADEM_HGT.001/NASADEM30m.vrt' ) as dataset:
-        with rio.open( '/mnt/d/GeoData/FABDEM_TH/FABDEM_Thailand.vrt' ) as dataset:
+        with rio.open( DEM ) as dataset:
             metadata = dataset.meta
             print("Metadata:", metadata)
             # Read the dataset's data
@@ -141,6 +144,7 @@ class RouteLandXML( RoutePoints ):
 LDP='''+proj=tmerc +lat_0=0.0 +lon_0=100.01666666666667 +k_0=1.000056 +x_0=50000 +y_0=-1700000 
 +a=6378137.0 +b=6356752.314245179 +units=m +no_defs +type=crs
 '''
+print( f'DEM : {DEM}')
 if 0:
     landxml_file = 'Data/Denchai-Chiangkhong.xml'
     route = RouteLandXML( landxml_file )
