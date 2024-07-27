@@ -4,7 +4,6 @@
 #               the corridors
 #
 from pyproj import Proj, CRS
-#import xml.etree.ElementTree as ET
 import pandas as pd
 import geopandas as gpd
 import numpy as np
@@ -15,6 +14,7 @@ import shapely
 from shapely.geometry import Point,LineString
 from shapely.ops import linemerge,snap
 import matplotlib.pyplot as plt
+import argparse , sys
 gpd.options.io_engine = "pyogrio"
 
 #DEM = r'/mnt/d/GeoData/NASADEM_HGT.001/NASADEM30m.vrt'
@@ -141,23 +141,30 @@ class RouteLandXML( RoutePoints ):
 ###################################################################################
 ###################################################################################
 ###################################################################################
-LDP='''+proj=tmerc +lat_0=0.0 +lon_0=100.01666666666667 +k_0=1.000056 +x_0=50000 +y_0=-1700000 
-+a=6378137.0 +b=6356752.314245179 +units=m +no_defs +type=crs
-'''
-print( f'DEM : {DEM}')
-if 0:
-    landxml_file = 'Data/Denchai-Chiangkhong.xml'
-    route = RouteLandXML( landxml_file )
-    route.PointsCorridor( DIV=500, ROW=200 )
-else:
-    KML = Path(  'Data/Test01.kml' )
-    #KML = Path(  'Data/Align_Srinakarin_95km.kml' )
-    route = RouteKML( KML )
-    route.PointsCorridor( 500, 200 )  # DIV equally every,  ROW define width of linestring
-    route.PlotMap( KML.stem )
+if __name__=="__main__":
+    print( f'DEM : {DEM}')
+    parser = argparse.ArgumentParser( prog='Pnts_Alignment',
+                        description='Generate points along an alignment defined by LandXML or KML',  
+                        epilog='phisan.chula@gmail (Phisan Santitamnont), June 2024 ' )
 
-#pntLDP   = route.dfPOINT.to_crs( CRS.from_proj4( LDP ) )
-#pntWGS84 = route.dfPOINT.to_crs( 'EPSG:4326' )
-#import pdb;pdb.set_trace()
-
-
+    parser.add_argument('-d', '--div',type=int, default=500,
+            help='division of stations along the alignment, layer="Station"' )
+    parser.add_argument('-r', '--row',type=int, default=200,
+            help='samplings on the left/right at the division, layer="ROW"' )
+    parser.add_argument('-k', '--kml', help='specify alignment by kml' )
+    parser.add_argument('-l', '--landxml', help='specify alignment by landxml' )
+    args = parser.parse_args()
+    print( args )
+    #landxml_file = 'Data/Denchai-Chiangkhong.xml'
+    if args.landxml:
+        route = RouteLandXML( args.landxml )
+        route.PointsCorridor( DIV=args.div, ROW=args.row )
+        route.PlotMap( Path(args.landxml).stem )
+    elif args.kml:
+        #KML = Path(  'Data/Test01.kml' )
+        #KML = Path(  'Data/Align_Srinakarin_95km.kml' )
+        route = RouteKML( args.kml )
+        route.PointsCorridor( DIV=args.div, ROW=args.row ) 
+        route.PlotMap( Path(args.kml).stem )
+    else:
+        parser.print_help()
