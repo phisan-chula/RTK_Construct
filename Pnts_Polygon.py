@@ -26,7 +26,7 @@ class PointPolygon:
             grid = self.GenGrid( POLY, ARGS.spacing )
         else:
             AUTOSPC = self.AutoSpacing( POLY ) 
-            print( f'Automatic point spacing {AUTOSPC} x {AUTOSPC} m' )
+            print( f'Automatic point spacing {AUTOSPC:,d} x {AUTOSPC:,d} m' )
             grid = self.GenGrid( POLY,  AUTOSPC )
         PntInside = POLY.intersection( MultiPoint( grid ) )
         #import pdb ; pdb.set_trace()
@@ -119,7 +119,9 @@ class PointKML( PointPolygon ):
         GPKG = Path(ARGS.kml).stem
         super().__init__( ARGS, Polygon(poly), GPKG )
 
-######################################################
+########################################################################################################
+########################################################################################################
+########################################################################################################
 parser = argparse.ArgumentParser( prog='Pnts_Polygon',
                     description='Generate points within polygon defined by KML\n'\
                                 'or province(s) specified by name(s)',
@@ -139,6 +141,5 @@ elif args.prov:
 elif args.list:
     df = gpd.read_file( 'GADM/gadm41_THA.gpkg', layer='ADM_ADM_1' )
     print( list(df.NAME_1) ) 
-    sys.exit(0)
-
-print( '******************** finish *****************')
+else:
+    parser.print_help()
